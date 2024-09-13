@@ -16,6 +16,13 @@
 
 #include QMK_KEYBOARD_H
 #include "muse.h"
+#include "rgblight.h"
+
+void keyboard_post_init_user(void) {
+    rgblight_enable(); // Enable RGB lighting
+    rgblight_mode(1); // Set to static mode
+    rgblight_sethsv(160, 255, 255); // Set to static blue (Hue: 160, Saturation: 255, Value: 255)
+}
 
 enum preonic_layers {
   _QWERTY,

@@ -30,7 +30,8 @@ enum preonic_layers {
   _DVORAK,
   _LOWER,
   _RAISE,
-  _ADJUST
+  _ADJUST,
+  _NUMPAD
 };
 
 enum preonic_keycodes {
@@ -62,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,
   KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RSFT_T(KC_ENT),
-  BACKLIT, KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+  BACKLIT, KC_LCTL, KC_LALT, KC_LGUI, LOWER,   LT(_NUMPAD, KC_SPC),  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Colemak
@@ -105,6 +106,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC,  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_SLSH,
   KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    RSFT_T(KC_ENT),
   BACKLIT, KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+),
+
+/* Numpad Layer
+ * `-----------------------------------------------------------------------------------'
+ * |      |      |      |      |      |      |      |      |      |   /  |   *  |  -   |
+ * ,-----------------------------------------------------------------------------------.
+ * |      |      |      |      |      |      |      |      |   7  |   8  |   9  |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |      |   4  |   5  |   6  |  +   |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |      |   1  |   2  |   3  |Enter |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |      |   0  |   0  |   .  |  =   |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_NUMPAD] = LAYOUT_preonic_grid(
+  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_PSLS, KC_PAST,  KC_PMNS,            // Row 1
+  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_7,    KC_8,    KC_9,     KC_PPLS,            // Row 2
+  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_4,    KC_5,    KC_6,     KC_PPLS,            // Row 3
+  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_1,    KC_2,    KC_3,     KC_KP_ENTER,        // Row 4
+  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_0,    KC_0,    KC_PDOT,  KC_KP_EQUAL_AS400   // Row 5
 ),
 
 /* Lower

@@ -32,16 +32,6 @@ combo_t key_combos[COMBO_LENGTH] = {
     [CAPS_LOCK_COMBO] = COMBO(caps_combo, KC_CAPS),
 };
 
-// Optional: Adjust COMBO_TERM timing for compatibility
-uint16_t get_combo_term(uint16_t index, combo_t *combo) {
-    switch (index) {
-        case CAPS_LOCK_COMBO:
-            return 200; // Adjust as needed for your key press speed
-        default:
-            return COMBO_TERM;
-    }
-}
-
 
 
 void keyboard_post_init_user(void) {

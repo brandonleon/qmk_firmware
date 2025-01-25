@@ -1,3 +1,4 @@
 SRC += muse.c
 AUTO_SHIFT_ENABLE = no
 RGBLIGHT_ENABLE = yes
+COMBO_ENABLE = yes
